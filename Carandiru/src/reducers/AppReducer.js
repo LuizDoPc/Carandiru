@@ -1,7 +1,8 @@
-import { PAGAMENTO_CONCLUIDO, MODIFICA_PAGAR_CASA } from '../actions/types';
+import { PAGAMENTO_CONCLUIDO, MODIFICA_PAGAR_CASA, FETCH_USERS } from '../actions/types';
 
 const INITIAL_STATE = {
-  valorPagarCasa: ''
+  valorPagarCasa: '',
+  users: []
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -15,6 +16,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         valorPagarCasa: ''
+      };
+    case FETCH_USERS:
+      return {
+        ...state,
+        users: action.payload
       };
     default:
       return state;

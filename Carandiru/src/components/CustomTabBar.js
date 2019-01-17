@@ -20,14 +20,14 @@ export default class CustomTabBarBottom extends React.Component {
             <Label>Grana</Label>
           </LabelContainer>
         </StyledTouchableOpacity>
-        <StyledTouchableOpacity onPress={() => false}>
-          <LabelContainer active={index == 'login'}>
+        <StyledTouchableOpacity onPress={() => (index == '_principal' ? Actions.principal() : false)}>
+          <LabelContainer active={index != '_principal'}>
             <Image source={home} style={{ width: 30, height: 30 }} />
             <Label>Home</Label>
           </LabelContainer>
         </StyledTouchableOpacity>
-        <StyledTouchableOpacity active={index == 2} onPress={() => false}>
-          <LabelContainer active={index == 2}>
+        <StyledTouchableOpacity onPress={() => (index == '_rh' || index == 'login' ? Actions.rh() : false)}>
+          <LabelContainer active={index != '_rh' && index != 'login'}>
             <Image source={rh} style={{ width: 30, height: 30 }} />
             <Label>RH</Label>
           </LabelContainer>

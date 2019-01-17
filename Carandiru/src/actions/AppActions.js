@@ -3,7 +3,7 @@ import '@firebase/auth';
 import '@firebase/database';
 import { Actions } from 'react-native-router-flux';
 import _ from 'lodash';
-import { MODIFICA_PAGAR_CASA, PAGAMENTO_CONCLUIDO } from './types';
+import { MODIFICA_PAGAR_CASA, PAGAMENTO_CONCLUIDO, FETCH_USERS } from './types';
 
 export const pagarCasa = (valor, uid) => {
   console.log(valor + ' / ' + uid);
@@ -51,5 +51,20 @@ export const modificaPagarCasa = texto => {
   return {
     type: MODIFICA_PAGAR_CASA,
     payload: texto
+  };
+};
+
+export const fetchMoradores = () => {
+  return dispatch => {
+    firebase
+      .database()
+      .ref('/users')
+      .on('value', snapshot => {
+        var res = _.values(snapshot.val());
+        dispatch({
+          type: FETCH_USERS,
+          payload: res
+        });
+      });
   };
 };

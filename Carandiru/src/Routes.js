@@ -4,6 +4,7 @@ import { Router, Scene } from 'react-native-router-flux';
 
 import Login from './components/Login';
 import Principal from './components/Principal';
+import RH from './components/RH';
 
 import CustomTabBar from './components/CustomTabBar';
 
@@ -23,6 +24,7 @@ export default props => (
       <Scene key="login" component={Login} title="Login" />
       <Scene key="inside-routes" tabs tabBarPosition="bottom" tabBarComponent={() => <CustomTabBar />}>
         <Scene key="principal" component={Principal} title="Principal" hideNavBar={false} />
+        <Scene key="rh" component={RH} title="RH" hideNavBar={false} />
       </Scene>
     </Scene>
   </Router>
