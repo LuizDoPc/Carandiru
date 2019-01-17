@@ -1,0 +1,3 @@
+rootProject.name = 'Carandiru'
+
+include ':app'
