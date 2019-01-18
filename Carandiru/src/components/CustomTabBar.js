@@ -11,23 +11,22 @@ import rh from '../img/rh.png';
 
 export default class CustomTabBarBottom extends React.Component {
   render() {
-    const index = Actions.currentScene;
     return (
       <StyledView>
-        <StyledTouchableOpacity onPress={() => false}>
-          <LabelContainer active={index == 0}>
+        <StyledTouchableOpacity onPress={() => Actions.money()}>
+          <LabelContainer>
             <Image source={money} style={{ width: 30, height: 30 }} />
-            <Label>Grana</Label>
+            <Label>Money</Label>
           </LabelContainer>
         </StyledTouchableOpacity>
-        <StyledTouchableOpacity onPress={() => (index == '_principal' ? Actions.principal() : false)}>
-          <LabelContainer active={index != '_principal'}>
+        <StyledTouchableOpacity onPress={() => Actions.principal()}>
+          <LabelContainer>
             <Image source={home} style={{ width: 30, height: 30 }} />
             <Label>Home</Label>
           </LabelContainer>
         </StyledTouchableOpacity>
-        <StyledTouchableOpacity onPress={() => (index == '_rh' || index == 'login' ? Actions.rh() : false)}>
-          <LabelContainer active={index != '_rh' && index != 'login'}>
+        <StyledTouchableOpacity onPress={() => Actions.rh()}>
+          <LabelContainer>
             <Image source={rh} style={{ width: 30, height: 30 }} />
             <Label>RH</Label>
           </LabelContainer>

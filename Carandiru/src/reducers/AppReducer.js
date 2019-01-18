@@ -1,8 +1,18 @@
-import { PAGAMENTO_CONCLUIDO, MODIFICA_PAGAR_CASA, FETCH_USERS } from '../actions/types';
+import {
+  PAGAMENTO_CONCLUIDO,
+  MODIFICA_PAGAR_CASA,
+  FETCH_USERS,
+  MODIFICA_VALOR_NOVO_GASTO,
+  MODIFICA_REF_NOVO_GASTO,
+  MODIFICA_LAST_NOVO_GASTO
+} from '../actions/types';
 
 const INITIAL_STATE = {
   valorPagarCasa: '',
-  users: []
+  users: [],
+  valorNovoGasto: '',
+  refNovoGasto: '',
+  lastNovoGasto: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -21,6 +31,21 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         users: action.payload
+      };
+    case MODIFICA_VALOR_NOVO_GASTO:
+      return {
+        ...state,
+        valorNovoGasto: action.payload
+      };
+    case MODIFICA_REF_NOVO_GASTO:
+      return {
+        ...state,
+        refNovoGasto: action.payload
+      };
+    case MODIFICA_LAST_NOVO_GASTO:
+      return {
+        ...state,
+        lastNovoGasto: action.payload
       };
     default:
       return state;
