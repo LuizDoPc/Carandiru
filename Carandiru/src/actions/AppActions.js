@@ -9,11 +9,12 @@ import {
   FETCH_USERS,
   MODIFICA_VALOR_NOVO_GASTO,
   MODIFICA_REF_NOVO_GASTO,
-  MODIFICA_LAST_NOVO_GASTO
+  MODIFICA_LAST_NOVO_GASTO,
+  MODIFICA_VALOR_NOVA_ENTRADA,
+  MODIFICA_REF_NOVA_ENTRADA
 } from './types';
 
 export const pagarCasa = (valor, uid) => {
-  console.log(valor + ' / ' + uid);
   if (!valor)
     return {
       type: ''
@@ -35,7 +36,6 @@ export const pagarCasa = (valor, uid) => {
     ];
     const d = new Date();
     let path = '/casa/entradas/' + d.getFullYear() + '/' + monthNames[d.getMonth()];
-    console.log(path);
     firebase
       .database()
       .ref(path)
@@ -128,12 +128,65 @@ export const novoGasto = (valor, ref, last) => {
         .push({
           tipo: 'GASTO_TEMPORARIO',
           valor,
-          ultima_parcela: last
+          ultima_parcela: last,
+          referente: ref
         })
         .then(() => {
           Actions.money();
         });
     }
+    dispatch({
+      type: ''
+    });
+  };
+};
+
+export const modificaValorNovaEntrada = texto => {
+  return {
+    type: MODIFICA_VALOR_NOVA_ENTRADA,
+    payload: texto
+  };
+};
+
+export const modificaRefNovaEntrada = texto => {
+  return {
+    type: MODIFICA_REF_NOVA_ENTRADA,
+    payload: texto
+  };
+};
+
+export const novaEntrada = (valor, ref) => {
+  return dispatch => {
+    const monthNames = [
+      'Janeiro',
+      'Fevereiro',
+      'Marco',
+      'Abril',
+      'Maio',
+      'Junho',
+      'Julho',
+      'Agosto',
+      'Setembro',
+      'Outubro',
+      'Novembro',
+      'Dezembro'
+    ];
+    const d = new Date();
+
+    let path = '/casa/entradas/' + d.getFullYear() + '/' + monthNames[d.getMonth()];
+
+    firebase
+      .database()
+      .ref(path)
+      .push({
+        tipo: 'NOVA_ENTRADA',
+        valor,
+        referente: ref
+      })
+      .then(() => {
+        Actions.money();
+      });
+
     dispatch({
       type: ''
     });

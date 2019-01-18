@@ -4,7 +4,9 @@ import {
   FETCH_USERS,
   MODIFICA_VALOR_NOVO_GASTO,
   MODIFICA_REF_NOVO_GASTO,
-  MODIFICA_LAST_NOVO_GASTO
+  MODIFICA_LAST_NOVO_GASTO,
+  MODIFICA_VALOR_NOVA_ENTRADA,
+  MODIFICA_REF_NOVA_ENTRADA
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -12,7 +14,9 @@ const INITIAL_STATE = {
   users: [],
   valorNovoGasto: '',
   refNovoGasto: '',
-  lastNovoGasto: ''
+  lastNovoGasto: '',
+  valorNovaEntrada: '',
+  refNovaEntrada: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -46,6 +50,16 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         lastNovoGasto: action.payload
+      };
+    case MODIFICA_VALOR_NOVA_ENTRADA:
+      return {
+        ...state,
+        valorNovaEntrada: action.payload
+      };
+    case MODIFICA_REF_NOVA_ENTRADA:
+      return {
+        ...state,
+        refNovaEntrada: action.payload
       };
     default:
       return state;
