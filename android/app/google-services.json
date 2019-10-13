@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "954036311815",
+    "firebase_url": "https://carandiru-27eb0.firebaseio.com",
+    "project_id": "carandiru-27eb0",
+    "storage_bucket": "carandiru-27eb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954036311815:android:abb4f86ee169ad61cd97a2",
+        "android_client_info": {
+          "package_name": "com.carandiru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954036311815-p7ste0qbgggroim2n83mmksbjvahv2gg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjNxI6VNgUjcXTNCboDglNwTXp7aMHkd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954036311815-p7ste0qbgggroim2n83mmksbjvahv2gg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
